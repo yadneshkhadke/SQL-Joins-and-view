@@ -1,0 +1,2018 @@
+Microsoft Windows [Version 10.0.22621.2283]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Hp>cd\
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -h localhost -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 22
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| information_schema |
+| investment         |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| school             |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use school;
+Database changed
+MariaDB [school]> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| arith            |
+| emp              |
+| mobile           |
+| student          |
++------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.021 sec)
+
+MariaDB [school]> select concat("ITVEDANT","ECLASS") as result;
++----------------+
+| result         |
++----------------+
+| ITVEDANTECLASS |
++----------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select concat("ITVEDANT","-","ECLASS") as rrsult;
++-----------------+
+| rrsult          |
++-----------------+
+| ITVEDANT-ECLASS |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select name,sal,concat(name,"-",sal)as result from emp;
++-----------+-------+-----------------+
+| name      | sal   | result          |
++-----------+-------+-----------------+
+| harry     | 40000 | harry-40000     |
+| mac       | 45000 | mac-45000       |
+| Rox       | 60000 | Rox-60000       |
+| shree     | 85000 | shree-85000     |
+| seema     | 32000 | seema-32000     |
+| ankita    | 38000 | ankita-38000    |
+| ramesh    | 42000 | ramesh-42000    |
+| mishi     | 47000 | mishi-47000     |
+| Akshay    | 31000 | Akshay-31000    |
+| Meena     | 38000 | Meena-38000     |
+| shasshank | 45000 | shasshank-45000 |
+| pramod    | 33000 | pramod-33000    |
+| eesha     | 34000 | eesha-34000     |
++-----------+-------+-----------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select lower("ITVEDANT")as result;
++----------+
+| result   |
++----------+
+| itvedant |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select name,lower(name)as result from emp;
++-----------+-----------+
+| name      | result    |
++-----------+-----------+
+| harry     | harry     |
+| mac       | mac       |
+| Rox       | rox       |
+| shree     | shree     |
+| seema     | seema     |
+| ankita    | ankita    |
+| ramesh    | ramesh    |
+| mishi     | mishi     |
+| Akshay    | akshay    |
+| Meena     | meena     |
+| shasshank | shasshank |
+| pramod    | pramod    |
+| eesha     | eesha     |
++-----------+-----------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select name,upper(name)as result from emp;
++-----------+-----------+
+| name      | result    |
++-----------+-----------+
+| harry     | HARRY     |
+| mac       | MAC       |
+| Rox       | ROX       |
+| shree     | SHREE     |
+| seema     | SEEMA     |
+| ankita    | ANKITA    |
+| ramesh    | RAMESH    |
+| mishi     | MISHI     |
+| Akshay    | AKSHAY    |
+| Meena     | MEENA     |
+| shasshank | SHASSHANK |
+| pramod    | PRAMOD    |
+| eesha     | EESHA     |
++-----------+-----------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select replace ("Good Morning","Morning","Evening")as result;
++--------------+
+| result       |
++--------------+
+| Good Evening |
++--------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select replace(dept,"IT","Information Technology")from emp;
++---------------------------------------------+
+| replace(dept,"IT","Information Technology") |
++---------------------------------------------+
+| Information Technology                      |
+| HR                                          |
+| support                                     |
+| Information Technology                      |
+| Information Technology                      |
+| HR                                          |
+| Information Technology                      |
+| Production                                  |
+| Information Technology                      |
+| HR                                          |
+| support                                     |
+| maintainance                                |
+| HR                                          |
++---------------------------------------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select substr("ITVEDANT",3,6);
++------------------------+
+| substr("ITVEDANT",3,6) |
++------------------------+
+| VEDANT                 |
++------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select name,length(name)as name_length from emp;
++-----------+-------------+
+| name      | name_length |
++-----------+-------------+
+| harry     |           5 |
+| mac       |           3 |
+| Rox       |           3 |
+| shree     |           5 |
+| seema     |           5 |
+| ankita    |           6 |
+| ramesh    |           6 |
+| mishi     |           5 |
+| Akshay    |           6 |
+| Meena     |           5 |
+| shasshank |           9 |
+| pramod    |           6 |
+| eesha     |           5 |
++-----------+-------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select abs(-4);
++---------+
+| abs(-4) |
++---------+
+|       4 |
++---------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select ceil(45.9);
++------------+
+| ceil(45.9) |
++------------+
+|         46 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select floor(45.9);
++-------------+
+| floor(45.9) |
++-------------+
+|          45 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select round(99.8);
++-------------+
+| round(99.8) |
++-------------+
+|         100 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select round(99.8) as result;
++--------+
+| result |
++--------+
+|    100 |
++--------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select MOD(2,9);
++----------+
+| MOD(2,9) |
++----------+
+|        2 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select pow(2,4);
++----------+
+| pow(2,4) |
++----------+
+|       16 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select sqrt(81);
++----------+
+| sqrt(81) |
++----------+
+|        9 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select curdate()as system_time;
++-------------+
+| system_time |
++-------------+
+| 2023-09-29  |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select now()as date_time;
++---------------------+
+| date_time           |
++---------------------+
+| 2023-09-29 05:38:06 |
++---------------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select curtime()as current_time;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'current_time' at line 1
+MariaDB [school]> select curtime() as system_time;
++-------------+
+| system_time |
++-------------+
+| 05:38:47    |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select year(now())as year;
++------+
+| year |
++------+
+| 2023 |
++------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select month(now())as month;
++-------+
+| month |
++-------+
+|     9 |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select day(now())as day;
++------+
+| day  |
++------+
+|   29 |
++------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select hour(now())as hrs;
++------+
+| hrs  |
++------+
+|    5 |
++------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select minute(now())as minutes;
++---------+
+| minutes |
++---------+
+|      40 |
++---------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select second(now())as seconds;
++---------+
+| seconds |
++---------+
+|      41 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select datediff(now(),"2021-04-28")as no_of_days;
++------------+
+| no_of_days |
++------------+
+|        884 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select  date_format(curdate(),"%d %m %y")as new_date;
++----------+
+| new_date |
++----------+
+| 29 09 23 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select  date_format(curdate(),"%d/%m/%y")as new_date;
++----------+
+| new_date |
++----------+
+| 29/09/23 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select date_format(curdate(),"%D/%M/%Y")as new-date;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-date' at line 1
+MariaDB [school]> select date_format(curdate(),"%D/%M/%Y")as new_date;
++---------------------+
+| new_date            |
++---------------------+
+| 29th/September/2023 |
++---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [school]> select * from ep;
+ERROR 1146 (42S02): Table 'school.ep' doesn't exist
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select sum(sal)as sal_avg from emp;
++---------+
+| sal_avg |
++---------+
+|  570000 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select avg(sal)as sal_avg from emp;
++--------------------+
+| sal_avg            |
++--------------------+
+| 43846.153846153844 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select min(sal)as min_sal from emp;
++---------+
+| min_sal |
++---------+
+|   31000 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select min(doj)as min_DOj from emp;
++------------+
+| min_DOj    |
++------------+
+| 2017-08-03 |
++------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select min(name)as min_name from emp;
++----------+
+| min_name |
++----------+
+| Akshay   |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select max(sal)as max_sal from emp;
++---------+
+| max_sal |
++---------+
+|   85000 |
++---------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select max(doj)as max_DOJ from emp;
++------------+
+| max_DOJ    |
++------------+
+| 2021-12-20 |
++------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select max(name)as max_name from emp;
++----------+
+| max_name |
++----------+
+| shree    |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select count(dept)as total_records from emp;
++---------------+
+| total_records |
++---------------+
+|            13 |
++---------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select count(*)as total_records from emp;
++---------------+
+| total_records |
++---------------+
+|            13 |
++---------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select count(doj)as total_count from emp;
++-------------+
+| total_count |
++-------------+
+|          12 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select dept from emp;
++--------------+
+| dept         |
++--------------+
+| IT           |
+| HR           |
+| support      |
+| IT           |
+| IT           |
+| HR           |
+| IT           |
+| Production   |
+| IT           |
+| HR           |
+| support      |
+| maintainance |
+| HR           |
++--------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select dept from emp group by dept;
++--------------+
+| dept         |
++--------------+
+| HR           |
+| IT           |
+| maintainance |
+| Production   |
+| support      |
++--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select dept,count(dept)as tcount from emp group by dept;
++--------------+--------+
+| dept         | tcount |
++--------------+--------+
+| HR           |      4 |
+| IT           |      5 |
+| maintainance |      1 |
+| Production   |      1 |
+| support      |      2 |
++--------------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select dept,count(dept)as tcount from emp group by dept
+    -> having count(dept)<3;
++--------------+--------+
+| dept         | tcount |
++--------------+--------+
+| maintainance |      1 |
+| Production   |      1 |
+| support      |      2 |
++--------------+--------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp where id=12;
++----+--------+--------------+-------+------+
+| id | name   | dept         | sal   | doj  |
++----+--------+--------------+-------+------+
+| 12 | pramod | maintainance | 33000 | NULL |
++----+--------+--------------+-------+------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal=85000;
++----+-------+------+-------+------------+
+| id | name  | dept | sal   | doj        |
++----+-------+------+-------+------------+
+|  4 | shree | IT   | 85000 | 2017-08-03 |
++----+-------+------+-------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select max(sal) froom emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'emp' at line 1
+MariaDB [school]> select max(sal) from emp;
++----------+
+| max(sal) |
++----------+
+|    85000 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal=(select max(sal)from emp);
++----+-------+------+-------+------------+
+| id | name  | dept | sal   | doj        |
++----+-------+------+-------+------------+
+|  4 | shree | IT   | 85000 | 2017-08-03 |
++----+-------+------+-------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select sal from emp where sal!=(select max(sal)from emp);
++-------+
+| sal   |
++-------+
+| 40000 |
+| 45000 |
+| 60000 |
+| 32000 |
+| 38000 |
+| 42000 |
+| 47000 |
+| 31000 |
+| 38000 |
+| 45000 |
+| 33000 |
+| 34000 |
++-------+
+12 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal=(select max(sal)from emp where sal!=(select max(sal)from emp));
++----+------+---------+-------+------------+
+| id | name | dept    | sal   | doj        |
++----+------+---------+-------+------------+
+|  3 | Rox  | support | 60000 | 2018-05-22 |
++----+------+---------+-------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select avg(sal) as avg_sal from emp;
++--------------------+
+| avg_sal            |
++--------------------+
+| 43846.153846153844 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal>(select avg(sal)from emp);
++----+-----------+------------+-------+------------+
+| id | name      | dept       | sal   | doj        |
++----+-----------+------------+-------+------------+
+|  2 | mac       | HR         | 45000 | 2017-08-14 |
+|  3 | Rox       | support    | 60000 | 2018-05-22 |
+|  4 | shree     | IT         | 85000 | 2017-08-03 |
+|  8 | mishi     | Production | 47000 | 2021-06-24 |
+| 11 | shasshank | support    | 45000 | 2018-05-21 |
++----+-----------+------------+-------+------------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal<(select avg(sal)from emp);
++----+--------+--------------+-------+------------+
+| id | name   | dept         | sal   | doj        |
++----+--------+--------------+-------+------------+
+|  1 | harry  | IT           | 40000 | 2018-04-21 |
+|  5 | seema  | IT           | 32000 | 2019-08-12 |
+|  6 | ankita | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh | IT           | 42000 | 2020-06-17 |
+|  9 | Akshay | IT           | 31000 | 2021-12-20 |
+| 10 | Meena  | HR           | 38000 | 2019-11-20 |
+| 12 | pramod | maintainance | 33000 | NULL       |
+| 13 | eesha  | HR           | 34000 | 2021-04-21 |
++----+--------+--------------+-------+------------+
+8 rows in set (0.001 sec)
+
+MariaDB [school]> select sal from emp where sal!=(select max(sal)from emp where sal!=(select max(sal)from emp;))
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+    -> select sal from emp where sal!=(select max(sal)from emp where sal!=(select max(sal)from emp));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))
+select sal from emp where sal!=(select max(sal)from emp where sal!=(select...' at line 1
+MariaDB [school]> select sal from emp where sal!=(select max(sal) from emp where sal!=(select max(sal) from  emp));
++-------+
+| sal   |
++-------+
+| 40000 |
+| 45000 |
+| 85000 |
+| 32000 |
+| 38000 |
+| 42000 |
+| 47000 |
+| 31000 |
+| 38000 |
+| 45000 |
+| 33000 |
+| 34000 |
++-------+
+12 rows in set (0.001 sec)
+
+MariaDB [school]> select max(sal)from emp where sal !=(select max(sal)from emp where sal !=(select max(sal)from emp));
++----------+
+| max(sal) |
++----------+
+|    85000 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select dept,avg(sal)from emp group by dept;
++--------------+----------+
+| dept         | avg(sal) |
++--------------+----------+
+| HR           |    38750 |
+| IT           |    46000 |
+| maintainance |    33000 |
+| Production   |    47000 |
+| support      |    52500 |
++--------------+----------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select avg(sal)from emp group by dept;
++----------+
+| avg(sal) |
++----------+
+|    38750 |
+|    46000 |
+|    33000 |
+|    47000 |
+|    52500 |
++----------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
++----+-----------+--------------+-------+------------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal in(select avg(sal)from emp group by dept);
++----+--------+--------------+-------+------------+
+| id | name   | dept         | sal   | doj        |
++----+--------+--------------+-------+------------+
+|  8 | mishi  | Production   | 47000 | 2021-06-24 |
+| 12 | pramod | maintainance | 33000 | NULL       |
++----+--------+--------------+-------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [school]> select sal from emp order by sal desc;
++-------+
+| sal   |
++-------+
+| 85000 |
+| 60000 |
+| 47000 |
+| 45000 |
+| 45000 |
+| 42000 |
+| 40000 |
+| 38000 |
+| 38000 |
+| 34000 |
+| 33000 |
+| 32000 |
+| 31000 |
++-------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> select sal from emp order by sal;
++-------+
+| sal   |
++-------+
+| 31000 |
+| 32000 |
+| 33000 |
+| 34000 |
+| 38000 |
+| 38000 |
+| 40000 |
+| 42000 |
+| 45000 |
+| 45000 |
+| 47000 |
+| 60000 |
+| 85000 |
++-------+
+13 rows in set (0.001 sec)
+
+MariaDB [school]> insert into emp(name,dept,sal,doj)values
+    ->
+    ->
+    -> ("Harish","HR",60000,"2018-01-23");
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
+| 14 | Harish    | HR           | 60000 | 2018-01-23 |
++----+-----------+--------------+-------+------------+
+14 rows in set (0.001 sec)
+
+MariaDB [school]> select sal from emp order by desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'desc' at line 1
+MariaDB [school]> select sal from emp order by sal desc;
++-------+
+| sal   |
++-------+
+| 85000 |
+| 60000 |
+| 60000 |
+| 47000 |
+| 45000 |
+| 45000 |
+| 42000 |
+| 40000 |
+| 38000 |
+| 38000 |
+| 34000 |
+| 33000 |
+| 32000 |
+| 31000 |
++-------+
+14 rows in set (0.001 sec)
+
+MariaDB [school]> select distinct sal from emp order by sal desc limit 3;
++-------+
+| sal   |
++-------+
+| 85000 |
+| 60000 |
+| 47000 |
++-------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select distinct sal from emp order desc limit 2,1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'desc limit 2,1' at line 1
+MariaDB [school]> select distinct sal from emp order by sal desc limit 2,1;
++-------+
+| sal   |
++-------+
+| 47000 |
++-------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> select * from emp where sal=(select distinct sal from emp order by sal desc limit 2,1);
++----+-------+------------+-------+------------+
+| id | name  | dept       | sal   | doj        |
++----+-------+------------+-------+------------+
+|  8 | mishi | Production | 47000 | 2021-06-24 |
++----+-------+------------+-------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> create table employee(id int primary key auto_increment,name varchar(50),city varchar(50));
+Query OK, 0 rows affected (0.057 sec)
+
+MariaDB [school]> desc employee;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50) | YES  |     | NULL    |                |
+| city  | varchar(50) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.021 sec)
+
+MariaDB [school]> insert into employee(name,city)values("Harry","Pune"),("Mac","Nashik"),("Rox","Mumbai"),("Shree","Thane"),("Ramesh","Nagpur");
+Query OK, 5 rows affected (0.006 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from emploee;
+ERROR 1146 (42S02): Table 'school.emploee' doesn't exist
+MariaDB [school]> select * from employee;
++----+--------+--------+
+| id | name   | city   |
++----+--------+--------+
+|  1 | Harry  | Pune   |
+|  2 | Mac    | Nashik |
+|  3 | Rox    | Mumbai |
+|  4 | Shree  | Thane  |
+|  5 | Ramesh | Nagpur |
++----+--------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> create table dept(id int primary key auto_increment,eid, int,dept varchar(50),loc(50));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' int,dept varchar(50),loc(50))' at line 1
+MariaDB [school]> create table dept(id int primary key auto_increment,eid, int,dept varchar(50),loc varchar(50));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' int,dept varchar(50),loc varchar(50))' at line 1
+MariaDB [school]> create table dept(id int primary key auto_increment,eid int,dept varchar(50),loc varchar(50));
+Query OK, 0 rows affected (0.049 sec)
+
+MariaDB [school]> desc dept;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| eid   | int(11)     | YES  |     | NULL    |                |
+| dept  | varchar(50) | YES  |     | NULL    |                |
+| loc   | varchar(50) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.021 sec)
+
+MariaDB [school]> insert into dept(eid,dept,loc)values(1,"D1","Thane"),(2,"D2","Mumbai"),(4,"D4","Pune"),(5,"D5","Nagpur");
+Query OK, 4 rows affected (0.005 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from dept;
++----+------+------+--------+
+| id | eid  | dept | loc    |
++----+------+------+--------+
+|  1 |    1 | D1   | Thane  |
+|  2 |    2 | D2   | Mumbai |
+|  3 |    4 | D4   | Pune   |
+|  4 |    5 | D5   | Nagpur |
++----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| arith            |
+| dept             |
+| emp              |
+| employee         |
+| mobile           |
+| student          |
++------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee;
++----+--------+--------+
+| id | name   | city   |
++----+--------+--------+
+|  1 | Harry  | Pune   |
+|  2 | Mac    | Nashik |
+|  3 | Rox    | Mumbai |
+|  4 | Shree  | Thane  |
+|  5 | Ramesh | Nagpur |
++----+--------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept;
++----+------+------+--------+
+| id | eid  | dept | loc    |
++----+------+------+--------+
+|  1 |    1 | D1   | Thane  |
+|  2 |    2 | D2   | Mumbai |
+|  3 |    4 | D4   | Pune   |
+|  4 |    5 | D5   | Nagpur |
++----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee cross join dept;
++----+--------+--------+----+------+------+--------+
+| id | name   | city   | id | eid  | dept | loc    |
++----+--------+--------+----+------+------+--------+
+|  1 | Harry  | Pune   |  1 |    1 | D1   | Thane  |
+|  1 | Harry  | Pune   |  2 |    2 | D2   | Mumbai |
+|  1 | Harry  | Pune   |  3 |    4 | D4   | Pune   |
+|  1 | Harry  | Pune   |  4 |    5 | D5   | Nagpur |
+|  2 | Mac    | Nashik |  1 |    1 | D1   | Thane  |
+|  2 | Mac    | Nashik |  2 |    2 | D2   | Mumbai |
+|  2 | Mac    | Nashik |  3 |    4 | D4   | Pune   |
+|  2 | Mac    | Nashik |  4 |    5 | D5   | Nagpur |
+|  3 | Rox    | Mumbai |  1 |    1 | D1   | Thane  |
+|  3 | Rox    | Mumbai |  2 |    2 | D2   | Mumbai |
+|  3 | Rox    | Mumbai |  3 |    4 | D4   | Pune   |
+|  3 | Rox    | Mumbai |  4 |    5 | D5   | Nagpur |
+|  4 | Shree  | Thane  |  1 |    1 | D1   | Thane  |
+|  4 | Shree  | Thane  |  2 |    2 | D2   | Mumbai |
+|  4 | Shree  | Thane  |  3 |    4 | D4   | Pune   |
+|  4 | Shree  | Thane  |  4 |    5 | D5   | Nagpur |
+|  5 | Ramesh | Nagpur |  1 |    1 | D1   | Thane  |
+|  5 | Ramesh | Nagpur |  2 |    2 | D2   | Mumbai |
+|  5 | Ramesh | Nagpur |  3 |    4 | D4   | Pune   |
+|  5 | Ramesh | Nagpur |  4 |    5 | D5   | Nagpur |
++----+--------+--------+----+------+------+--------+
+20 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee inner join dept;
++----+--------+--------+----+------+------+--------+
+| id | name   | city   | id | eid  | dept | loc    |
++----+--------+--------+----+------+------+--------+
+|  1 | Harry  | Pune   |  1 |    1 | D1   | Thane  |
+|  1 | Harry  | Pune   |  2 |    2 | D2   | Mumbai |
+|  1 | Harry  | Pune   |  3 |    4 | D4   | Pune   |
+|  1 | Harry  | Pune   |  4 |    5 | D5   | Nagpur |
+|  2 | Mac    | Nashik |  1 |    1 | D1   | Thane  |
+|  2 | Mac    | Nashik |  2 |    2 | D2   | Mumbai |
+|  2 | Mac    | Nashik |  3 |    4 | D4   | Pune   |
+|  2 | Mac    | Nashik |  4 |    5 | D5   | Nagpur |
+|  3 | Rox    | Mumbai |  1 |    1 | D1   | Thane  |
+|  3 | Rox    | Mumbai |  2 |    2 | D2   | Mumbai |
+|  3 | Rox    | Mumbai |  3 |    4 | D4   | Pune   |
+|  3 | Rox    | Mumbai |  4 |    5 | D5   | Nagpur |
+|  4 | Shree  | Thane  |  1 |    1 | D1   | Thane  |
+|  4 | Shree  | Thane  |  2 |    2 | D2   | Mumbai |
+|  4 | Shree  | Thane  |  3 |    4 | D4   | Pune   |
+|  4 | Shree  | Thane  |  4 |    5 | D5   | Nagpur |
+|  5 | Ramesh | Nagpur |  1 |    1 | D1   | Thane  |
+|  5 | Ramesh | Nagpur |  2 |    2 | D2   | Mumbai |
+|  5 | Ramesh | Nagpur |  3 |    4 | D4   | Pune   |
+|  5 | Ramesh | Nagpur |  4 |    5 | D5   | Nagpur |
++----+--------+--------+----+------+------+--------+
+20 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee inner join dept on(employee.id=dept.eid);
++----+--------+--------+----+------+------+--------+
+| id | name   | city   | id | eid  | dept | loc    |
++----+--------+--------+----+------+------+--------+
+|  1 | Harry  | Pune   |  1 |    1 | D1   | Thane  |
+|  2 | Mac    | Nashik |  2 |    2 | D2   | Mumbai |
+|  4 | Shree  | Thane  |  3 |    4 | D4   | Pune   |
+|  5 | Ramesh | Nagpur |  4 |    5 | D5   | Nagpur |
++----+--------+--------+----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select name,dept,loc from employee e inner join dept d on(e.id=d.eid);
++--------+------+--------+
+| name   | dept | loc    |
++--------+------+--------+
+| Harry  | D1   | Thane  |
+| Mac    | D2   | Mumbai |
+| Shree  | D4   | Pune   |
+| Ramesh | D5   | Nagpur |
++--------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select *  from employee;
++----+--------+--------+
+| id | name   | city   |
++----+--------+--------+
+|  1 | Harry  | Pune   |
+|  2 | Mac    | Nashik |
+|  3 | Rox    | Mumbai |
+|  4 | Shree  | Thane  |
+|  5 | Ramesh | Nagpur |
++----+--------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept;
++----+------+------+--------+
+| id | eid  | dept | loc    |
++----+------+------+--------+
+|  1 |    1 | D1   | Thane  |
+|  2 |    2 | D2   | Mumbai |
+|  3 |    4 | D4   | Pune   |
+|  4 |    5 | D5   | Nagpur |
++----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept d left join employee e on(e.id=d.eid);
++----+------+------+--------+------+--------+--------+
+| id | eid  | dept | loc    | id   | name   | city   |
++----+------+------+--------+------+--------+--------+
+|  1 |    1 | D1   | Thane  |    1 | Harry  | Pune   |
+|  2 |    2 | D2   | Mumbai |    2 | Mac    | Nashik |
+|  3 |    4 | D4   | Pune   |    4 | Shree  | Thane  |
+|  4 |    5 | D5   | Nagpur |    5 | Ramesh | Nagpur |
++----+------+------+--------+------+--------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee e left join dept d on(e.id=d.eid);
++----+--------+--------+------+------+------+--------+
+| id | name   | city   | id   | eid  | dept | loc    |
++----+--------+--------+------+------+------+--------+
+|  1 | Harry  | Pune   |    1 |    1 | D1   | Thane  |
+|  2 | Mac    | Nashik |    2 |    2 | D2   | Mumbai |
+|  4 | Shree  | Thane  |    3 |    4 | D4   | Pune   |
+|  5 | Ramesh | Nagpur |    4 |    5 | D5   | Nagpur |
+|  3 | Rox    | Mumbai | NULL | NULL | NULL | NULL   |
++----+--------+--------+------+------+------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept d left join employee e on(e.id=d.eid);
++----+------+------+--------+------+--------+--------+
+| id | eid  | dept | loc    | id   | name   | city   |
++----+------+------+--------+------+--------+--------+
+|  1 |    1 | D1   | Thane  |    1 | Harry  | Pune   |
+|  2 |    2 | D2   | Mumbai |    2 | Mac    | Nashik |
+|  3 |    4 | D4   | Pune   |    4 | Shree  | Thane  |
+|  4 |    5 | D5   | Nagpur |    5 | Ramesh | Nagpur |
++----+------+------+--------+------+--------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee;
++----+--------+--------+
+| id | name   | city   |
++----+--------+--------+
+|  1 | Harry  | Pune   |
+|  2 | Mac    | Nashik |
+|  3 | Rox    | Mumbai |
+|  4 | Shree  | Thane  |
+|  5 | Ramesh | Nagpur |
++----+--------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept;
++----+------+------+--------+
+| id | eid  | dept | loc    |
++----+------+------+--------+
+|  1 |    1 | D1   | Thane  |
+|  2 |    2 | D2   | Mumbai |
+|  3 |    4 | D4   | Pune   |
+|  4 |    5 | D5   | Nagpur |
++----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from employee e right join dept d on(e.id=d.eid);
++------+--------+--------+----+------+------+--------+
+| id   | name   | city   | id | eid  | dept | loc    |
++------+--------+--------+----+------+------+--------+
+|    1 | Harry  | Pune   |  1 |    1 | D1   | Thane  |
+|    2 | Mac    | Nashik |  2 |    2 | D2   | Mumbai |
+|    4 | Shree  | Thane  |  3 |    4 | D4   | Pune   |
+|    5 | Ramesh | Nagpur |  4 |    5 | D5   | Nagpur |
++------+--------+--------+----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept d right join employee e on(d.eid=e.id);
++------+------+------+--------+----+--------+--------+
+| id   | eid  | dept | loc    | id | name   | city   |
++------+------+------+--------+----+--------+--------+
+|    1 |    1 | D1   | Thane  |  1 | Harry  | Pune   |
+|    2 |    2 | D2   | Mumbai |  2 | Mac    | Nashik |
+|    3 |    4 | D4   | Pune   |  4 | Shree  | Thane  |
+|    4 |    5 | D5   | Nagpur |  5 | Ramesh | Nagpur |
+| NULL | NULL | NULL | NULL   |  3 | Rox    | Mumbai |
++------+------+------+--------+----+--------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> create table course(sid varchar(50),cid varchar(50),year int);
+Query OK, 0 rows affected (0.065 sec)
+
+MariaDB [school]> desc course;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| sid   | varchar(50) | YES  |     | NULL    |       |
+| cid   | varchar(50) | YES  |     | NULL    |       |
+| year  | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.021 sec)
+
+MariaDB [school]> insert into course(sid,cid,year)values("s1","c1",2009),("s2","c1",2015),("s1","c2",2015);
+Query OK, 3 rows affected (0.005 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select from course;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from course' at line 1
+MariaDB [school]> select * from course;
++------+------+------+
+| sid  | cid  | year |
++------+------+------+
+| s1   | c1   | 2009 |
+| s2   | c1   | 2015 |
+| s1   | c2   | 2015 |
++------+------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> insert into course(sid,cid,year)values("s1","c1",2009),("s2","c2",2015),("s1","c2",2015);
+Query OK, 3 rows affected (0.006 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from course;
++------+------+------+
+| sid  | cid  | year |
++------+------+------+
+| s1   | c1   | 2009 |
+| s2   | c1   | 2015 |
+| s1   | c2   | 2015 |
+| s1   | c1   | 2009 |
+| s2   | c2   | 2015 |
+| s1   | c2   | 2015 |
++------+------+------+
+6 rows in set (0.001 sec)
+
+MariaDB [school]> drop table course;
+Query OK, 0 rows affected (0.025 sec)
+
+MariaDB [school]> create table course(sid varchar(50),cid varchar(50),year int);
+Query OK, 0 rows affected (0.051 sec)
+
+MariaDB [school]> insert into course(sid,cid,year)values("s1","c1","2009"),("s2","c2",2015),("s1","c2",2015);
+Query OK, 3 rows affected (0.006 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from course;
++------+------+------+
+| sid  | cid  | year |
++------+------+------+
+| s1   | c1   | 2009 |
+| s2   | c2   | 2015 |
+| s1   | c2   | 2015 |
++------+------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from course inner join course;
+ERROR 1066 (42000): Not unique table/alias: 'course'
+MariaDB [school]> select * from course cs1 inner join course cs2;
++------+------+------+------+------+------+
+| sid  | cid  | year | sid  | cid  | year |
++------+------+------+------+------+------+
+| s1   | c1   | 2009 | s1   | c1   | 2009 |
+| s2   | c2   | 2015 | s1   | c1   | 2009 |
+| s1   | c2   | 2015 | s1   | c1   | 2009 |
+| s1   | c1   | 2009 | s2   | c2   | 2015 |
+| s2   | c2   | 2015 | s2   | c2   | 2015 |
+| s1   | c2   | 2015 | s2   | c2   | 2015 |
+| s1   | c1   | 2009 | s1   | c2   | 2015 |
+| s2   | c2   | 2015 | s1   | c2   | 2015 |
+| s1   | c2   | 2015 | s1   | c2   | 2015 |
++------+------+------+------+------+------+
+9 rows in set (0.001 sec)
+
+MariaDB [school]> select sid form course cs1 inner join course cs2
+    -> on(cs1.sid=cs2.sid and cs1.cid<>cs2.cid);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'course cs1 inner join course cs2
+on(cs1.sid=cs2.sid and cs1.cid<>cs2.cid)' at line 1
+MariaDB [school]> select cs1.sid from course cs1 inner join course cs2
+    -> on(cs1.sid=cs2.sid and cs1.cid<>cs2.cid);
++------+
+| sid  |
++------+
+| s1   |
+| s1   |
++------+
+2 rows in set (0.001 sec)
+
+MariaDB [school]> select distinct cs1.sid from course cs1 inner join course cs2 on(cs1.sid=cs2.sid and cs1.cid<>cs2.cid);
++------+
+| sid  |
++------+
+| s1   |
++------+
+1 row in set (0.001 sec)
+
+MariaDB [school]> create table products(id int primary key auto_increment,name varchar(50),price float);
+Query OK, 0 rows affected (0.059 sec)
+
+MariaDB [school]> desc products;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50) | YES  |     | NULL    |                |
+| price | float       | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.021 sec)
+
+MariaDB [school]> insert into products(name,price)values
+    -> ("mobile",25000),
+    -> ("washing machine",15000),
+    -> ("TCL smart Tv",18000),
+    -> ("Laptop-lenovo",45000),
+    -> ("smart watch",5000);
+Query OK, 5 rows affected (0.006 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from products;
++----+-----------------+-------+
+| id | name            | price |
++----+-----------------+-------+
+|  1 | mobile          | 25000 |
+|  2 | washing machine | 15000 |
+|  3 | TCL smart Tv    | 18000 |
+|  4 | Laptop-lenovo   | 45000 |
+|  5 | smart watch     |  5000 |
++----+-----------------+-------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> create table users(nid int primary key auto_increment,name varchar(50),mobile varchar(50),pin int);
+Query OK, 0 rows affected (0.057 sec)
+
+MariaDB [school]> desc users;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| nid    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(50) | YES  |     | NULL    |                |
+| mobile | varchar(50) | YES  |     | NULL    |                |
+| pin    | int(11)     | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+4 rows in set (0.020 sec)
+
+MariaDB [school]> drop table users;
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [school]> create table users(id int primary key auto_increment,name
+varchar(50),mobile varchar(50),pin int);
+Query OK, 0 rows affected (0.047 sec)
+
+MariaDB [school]> inert into users(name,mobile,pin)values
+    -> ("Harry","9595648695",431001),
+    -> ("Mac","9895976485",421001),
+    -> ("Rox","8585967469",411001);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'inert into users(name,mobile,pin)values
+("Harry","9595648695",431001),
+("Mac"...' at line 1
+MariaDB [school]> insert into users(name,mobile,pin)values
+    -> ("Harry","9595648695",431001),
+    -> ("Mac","9585769625",421001),
+    -> ("Rox","8574961425",451001);
+Query OK, 3 rows affected (0.006 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from users;
++----+-------+------------+--------+
+| id | name  | mobile     | pin    |
++----+-------+------------+--------+
+|  1 | Harry | 9595648695 | 431001 |
+|  2 | Mac   | 9585769625 | 421001 |
+|  3 | Rox   | 8574961425 | 451001 |
++----+-------+------------+--------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> create table cart(id int primary key,auto_increment,uid int,pid int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'uid int,pid int)' at line 1
+MariaDB [school]> create table cart(id int primary key auto_increment,uid int,pid int);
+Query OK, 0 rows affected (0.054 sec)
+
+MariaDB [school]> desc cart;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| uid   | int(11) | YES  |     | NULL    |                |
+| pid   | int(11) | YES  |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+3 rows in set (0.020 sec)
+
+MariaDB [school]> insert into cart(uid,pid)values(1,3),(1,5),(3,4);
+Query OK, 3 rows affected (0.006 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [school]> select * from cart;
++----+------+------+
+| id | uid  | pid  |
++----+------+------+
+|  1 |    1 |    3 |
+|  2 |    1 |    5 |
+|  3 |    3 |    4 |
++----+------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from users;
++----+-------+------------+--------+
+| id | name  | mobile     | pin    |
++----+-------+------------+--------+
+|  1 | Harry | 9595648695 | 431001 |
+|  2 | Mac   | 9585769625 | 421001 |
+|  3 | Rox   | 8574961425 | 451001 |
++----+-------+------------+--------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from products;
++----+-----------------+-------+
+| id | name            | price |
++----+-----------------+-------+
+|  1 | mobile          | 25000 |
+|  2 | washing machine | 15000 |
+|  3 | TCL smart Tv    | 18000 |
+|  4 | Laptop-lenovo   | 45000 |
+|  5 | smart watch     |  5000 |
++----+-----------------+-------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from cart c inner join users u on(c.uid=u.id);
++----+------+------+----+-------+------------+--------+
+| id | uid  | pid  | id | name  | mobile     | pin    |
++----+------+------+----+-------+------------+--------+
+|  1 |    1 |    3 |  1 | Harry | 9595648695 | 431001 |
+|  2 |    1 |    5 |  1 | Harry | 9595648695 | 431001 |
+|  3 |    3 |    4 |  3 | Rox   | 8574961425 | 451001 |
++----+------+------+----+-------+------------+--------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select u.name,u.pin from cart c inner join users u on(c.uid=u.id);
++-------+--------+
+| name  | pin    |
++-------+--------+
+| Harry | 431001 |
+| Harry | 431001 |
+| Rox   | 451001 |
++-------+--------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select u.name,u.pin,p.name,p.price from cart c
+    -> inner join users u on(c.uid=u.id)
+    -> inner join products p on(c.pid=p.id);
++-------+--------+---------------+-------+
+| name  | pin    | name          | price |
++-------+--------+---------------+-------+
+| Harry | 431001 | TCL smart Tv  | 18000 |
+| Harry | 431001 | smart watch   |  5000 |
+| Rox   | 451001 | Laptop-lenovo | 45000 |
++-------+--------+---------------+-------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
+| 14 | Harish    | HR           | 60000 | 2018-01-23 |
++----+-----------+--------------+-------+------------+
+14 rows in set (0.001 sec)
+
+MariaDB [school]> create view hr_view as select id,name,dept,doj from emp;
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [school]> shoe tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'shoe tables' at line 1
+MariaDB [school]> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| arith            |
+| cart             |
+| course           |
+| dept             |
+| emp              |
+| employee         |
+| hr_view          |
+| mobile           |
+| products         |
+| student          |
+| users            |
++------------------+
+11 rows in set (0.001 sec)
+
+MariaDB [school]> select * from hr_view;
++----+-----------+--------------+------------+
+| id | name      | dept         | doj        |
++----+-----------+--------------+------------+
+|  1 | harry     | IT           | 2018-04-21 |
+|  2 | mac       | HR           | 2017-08-14 |
+|  3 | Rox       | support      | 2018-05-22 |
+|  4 | shree     | IT           | 2017-08-03 |
+|  5 | seema     | IT           | 2019-08-12 |
+|  6 | ankita    | HR           | 2018-07-13 |
+|  7 | ramesh    | IT           | 2020-06-17 |
+|  8 | mishi     | Production   | 2021-06-24 |
+|  9 | Akshay    | IT           | 2021-12-20 |
+| 10 | Meena     | HR           | 2019-11-20 |
+| 11 | shasshank | support      | 2018-05-21 |
+| 12 | pramod    | maintainance | NULL       |
+| 13 | eesha     | HR           | 2021-04-21 |
+| 14 | Harish    | HR           | 2018-01-23 |
++----+-----------+--------------+------------+
+14 rows in set (0.002 sec)
+
+MariaDB [school]> create acct_view select id,name,dept,sal from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'acct_view select id,name,dept,sal from emp' at line 1
+MariaDB [school]> create acct_view as select id,name,dept,sal from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'acct_view as select id,name,dept,sal from emp' at line 1
+MariaDB [school]> create acct_view as select id,name,dept,sal from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'acct_view as select id,name,dept,sal from emp' at line 1
+MariaDB [school]> create view acct_view as select id,name,dept,sal from emp;
+Query OK, 0 rows affected (0.009 sec)
+
+MariaDB [school]> select * from acct_view;
++----+-----------+--------------+-------+
+| id | name      | dept         | sal   |
++----+-----------+--------------+-------+
+|  1 | harry     | IT           | 40000 |
+|  2 | mac       | HR           | 45000 |
+|  3 | Rox       | support      | 60000 |
+|  4 | shree     | IT           | 85000 |
+|  5 | seema     | IT           | 32000 |
+|  6 | ankita    | HR           | 38000 |
+|  7 | ramesh    | IT           | 42000 |
+|  8 | mishi     | Production   | 47000 |
+|  9 | Akshay    | IT           | 31000 |
+| 10 | Meena     | HR           | 38000 |
+| 11 | shasshank | support      | 45000 |
+| 12 | pramod    | maintainance | 33000 |
+| 13 | eesha     | HR           | 34000 |
+| 14 | Harish    | HR           | 60000 |
++----+-----------+--------------+-------+
+14 rows in set (0.002 sec)
+
+MariaDB [school]> insert into hr_view(name,dept,doj)values("Poornima","Support","2022-05-05");
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [school]> select * from hr_view;
++----+-----------+--------------+------------+
+| id | name      | dept         | doj        |
++----+-----------+--------------+------------+
+|  1 | harry     | IT           | 2018-04-21 |
+|  2 | mac       | HR           | 2017-08-14 |
+|  3 | Rox       | support      | 2018-05-22 |
+|  4 | shree     | IT           | 2017-08-03 |
+|  5 | seema     | IT           | 2019-08-12 |
+|  6 | ankita    | HR           | 2018-07-13 |
+|  7 | ramesh    | IT           | 2020-06-17 |
+|  8 | mishi     | Production   | 2021-06-24 |
+|  9 | Akshay    | IT           | 2021-12-20 |
+| 10 | Meena     | HR           | 2019-11-20 |
+| 11 | shasshank | support      | 2018-05-21 |
+| 12 | pramod    | maintainance | NULL       |
+| 13 | eesha     | HR           | 2021-04-21 |
+| 14 | Harish    | HR           | 2018-01-23 |
+| 15 | Poornima  | Support      | 2022-05-05 |
++----+-----------+--------------+------------+
+15 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
+| 14 | Harish    | HR           | 60000 | 2018-01-23 |
+| 15 | Poornima  | Support      |  NULL | 2022-05-05 |
++----+-----------+--------------+-------+------------+
+15 rows in set (0.001 sec)
+
+MariaDB [school]> select * from acct_view;
++----+-----------+--------------+-------+
+| id | name      | dept         | sal   |
++----+-----------+--------------+-------+
+|  1 | harry     | IT           | 40000 |
+|  2 | mac       | HR           | 45000 |
+|  3 | Rox       | support      | 60000 |
+|  4 | shree     | IT           | 85000 |
+|  5 | seema     | IT           | 32000 |
+|  6 | ankita    | HR           | 38000 |
+|  7 | ramesh    | IT           | 42000 |
+|  8 | mishi     | Production   | 47000 |
+|  9 | Akshay    | IT           | 31000 |
+| 10 | Meena     | HR           | 38000 |
+| 11 | shasshank | support      | 45000 |
+| 12 | pramod    | maintainance | 33000 |
+| 13 | eesha     | HR           | 34000 |
+| 14 | Harish    | HR           | 60000 |
+| 15 | Poornima  | Support      |  NULL |
++----+-----------+--------------+-------+
+15 rows in set (0.001 sec)
+
+MariaDB [school]> update acct_view set sal=45000 where id=15;
+Query OK, 1 row affected (0.006 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [school]> select * from acct_view;
++----+-----------+--------------+-------+
+| id | name      | dept         | sal   |
++----+-----------+--------------+-------+
+|  1 | harry     | IT           | 40000 |
+|  2 | mac       | HR           | 45000 |
+|  3 | Rox       | support      | 60000 |
+|  4 | shree     | IT           | 85000 |
+|  5 | seema     | IT           | 32000 |
+|  6 | ankita    | HR           | 38000 |
+|  7 | ramesh    | IT           | 42000 |
+|  8 | mishi     | Production   | 47000 |
+|  9 | Akshay    | IT           | 31000 |
+| 10 | Meena     | HR           | 38000 |
+| 11 | shasshank | support      | 45000 |
+| 12 | pramod    | maintainance | 33000 |
+| 13 | eesha     | HR           | 34000 |
+| 14 | Harish    | HR           | 60000 |
+| 15 | Poornima  | Support      | 45000 |
++----+-----------+--------------+-------+
+15 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
+| 14 | Harish    | HR           | 60000 | 2018-01-23 |
+| 15 | Poornima  | Support      | 45000 | 2022-05-05 |
++----+-----------+--------------+-------+------------+
+15 rows in set (0.001 sec)
+
+MariaDB [school]> delete from hr_view where id=15;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [school]> select * from acct_view;
++----+-----------+--------------+-------+
+| id | name      | dept         | sal   |
++----+-----------+--------------+-------+
+|  1 | harry     | IT           | 40000 |
+|  2 | mac       | HR           | 45000 |
+|  3 | Rox       | support      | 60000 |
+|  4 | shree     | IT           | 85000 |
+|  5 | seema     | IT           | 32000 |
+|  6 | ankita    | HR           | 38000 |
+|  7 | ramesh    | IT           | 42000 |
+|  8 | mishi     | Production   | 47000 |
+|  9 | Akshay    | IT           | 31000 |
+| 10 | Meena     | HR           | 38000 |
+| 11 | shasshank | support      | 45000 |
+| 12 | pramod    | maintainance | 33000 |
+| 13 | eesha     | HR           | 34000 |
+| 14 | Harish    | HR           | 60000 |
++----+-----------+--------------+-------+
+14 rows in set (0.001 sec)
+
+MariaDB [school]> select * from emp;
++----+-----------+--------------+-------+------------+
+| id | name      | dept         | sal   | doj        |
++----+-----------+--------------+-------+------------+
+|  1 | harry     | IT           | 40000 | 2018-04-21 |
+|  2 | mac       | HR           | 45000 | 2017-08-14 |
+|  3 | Rox       | support      | 60000 | 2018-05-22 |
+|  4 | shree     | IT           | 85000 | 2017-08-03 |
+|  5 | seema     | IT           | 32000 | 2019-08-12 |
+|  6 | ankita    | HR           | 38000 | 2018-07-13 |
+|  7 | ramesh    | IT           | 42000 | 2020-06-17 |
+|  8 | mishi     | Production   | 47000 | 2021-06-24 |
+|  9 | Akshay    | IT           | 31000 | 2021-12-20 |
+| 10 | Meena     | HR           | 38000 | 2019-11-20 |
+| 11 | shasshank | support      | 45000 | 2018-05-21 |
+| 12 | pramod    | maintainance | 33000 | NULL       |
+| 13 | eesha     | HR           | 34000 | 2021-04-21 |
+| 14 | Harish    | HR           | 60000 | 2018-01-23 |
++----+-----------+--------------+-------+------------+
+14 rows in set (0.001 sec)
+
+MariaDB [school]> select dept from emp group by dept;
++--------------+
+| dept         |
++--------------+
+| HR           |
+| IT           |
+| maintainance |
+| Production   |
+| support      |
++--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select dept ,count(dept)from emp group by dept;
++--------------+-------------+
+| dept         | count(dept) |
++--------------+-------------+
+| HR           |           5 |
+| IT           |           5 |
+| maintainance |           1 |
+| Production   |           1 |
+| support      |           2 |
++--------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select dept,count(dept)from emp group by dept having count(dept)<3;
++--------------+-------------+
+| dept         | count(dept) |
++--------------+-------------+
+| maintainance |           1 |
+| Production   |           1 |
+| support      |           2 |
++--------------+-------------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select dept,count(dept)from emp group by dept having count(dept)<3
+    -> order by count(dept)desc;
++--------------+-------------+
+| dept         | count(dept) |
++--------------+-------------+
+| support      |           2 |
+| maintainance |           1 |
+| Production   |           1 |
++--------------+-------------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select dept,count(dept)from emp grouo by dept having count(dept)>4
+    -> order by count(dept)desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'by dept having count(dept)>4
+order by count(dept)desc' at line 1
+MariaDB [school]> select dept,count(dept) from emp group by dept having count(dept)>4
+    -> order by count (dept) desc;
+ERROR 1630 (42000): FUNCTION school.count does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+MariaDB [school]> select dept,count(dept) from emp group by dept having count(dept)>4
+    -> order by count(dept) desc;
++------+-------------+
+| dept | count(dept) |
++------+-------------+
+| HR   |           5 |
+| IT   |           5 |
++------+-------------+
+2 rows in set (0.001 sec)
+
+MariaDB [school]> create view dept_view as select dept,count(dept) as cdept
+    -> from emp group by dept;
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [school]> select * from dept_view;
++--------------+-------+
+| dept         | cdept |
++--------------+-------+
+| HR           |     5 |
+| IT           |     5 |
+| maintainance |     1 |
+| Production   |     1 |
+| support      |     2 |
++--------------+-------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept_view cdept<3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<3' at line 1
+MariaDB [school]> select * from dept_view where cdept<3;
++--------------+-------+
+| dept         | cdept |
++--------------+-------+
+| maintainance |     1 |
+| Production   |     1 |
+| support      |     2 |
++--------------+-------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept_view where cdept>4;
++------+-------+
+| dept | cdept |
++------+-------+
+| HR   |     5 |
+| IT   |     5 |
++------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept_view where cdept>4 order by cdept desc;
++------+-------+
+| dept | cdept |
++------+-------+
+| IT   |     5 |
+| HR   |     5 |
++------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept_view where cdept<3 order by cdept desc;
++--------------+-------+
+| dept         | cdept |
++--------------+-------+
+| support      |     2 |
+| Production   |     1 |
+| maintainance |     1 |
++--------------+-------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept_view;
++--------------+-------+
+| dept         | cdept |
++--------------+-------+
+| HR           |     5 |
+| IT           |     5 |
+| maintainance |     1 |
+| Production   |     1 |
+| support      |     2 |
++--------------+-------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> insert into dept_view(dept,cdept)values("QA",3);
+ERROR 1471 (HY000): The target table dept_view of the INSERT is not insertable-into
+MariaDB [school]> update set cdept=6 where dept="HR";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'set cdept=6 where dept="HR"' at line 1
+MariaDB [school]> update dept_view set cdept=6 where dept="HR";
+ERROR 1288 (HY000): The target table dept_view of the UPDATE is not updatable
+MariaDB [school]> select * from employee;
++----+--------+--------+
+| id | name   | city   |
++----+--------+--------+
+|  1 | Harry  | Pune   |
+|  2 | Mac    | Nashik |
+|  3 | Rox    | Mumbai |
+|  4 | Shree  | Thane  |
+|  5 | Ramesh | Nagpur |
++----+--------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [school]> select * from cart;
++----+------+------+
+| id | uid  | pid  |
++----+------+------+
+|  1 |    1 |    3 |
+|  2 |    1 |    5 |
+|  3 |    3 |    4 |
++----+------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [school]> select * from dept;
++----+------+------+--------+
+| id | eid  | dept | loc    |
++----+------+------+--------+
+|  1 |    1 | D1   | Thane  |
+|  2 |    2 | D2   | Mumbai |
+|  3 |    4 | D4   | Pune   |
+|  4 |    5 | D5   | Nagpur |
++----+------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> create view_emp_dept as
+    -> select e.id,e.name.city,d.dept,d.loc from employee e inner join
+    -> dept d on(e.id=d.eid);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'view_emp_dept as
+select e.id,e.name.city,d.dept,d.loc from employee e inner j...' at line 1
+MariaDB [school]> create view emp_dept as
+    -> select e.id,e.name,e.city,d.dept,d.loc from employee e inner join
+    -> dept d on(e.id=d.eid);
+Query OK, 0 rows affected (0.008 sec)
+
+MariaDB [school]> select * from emp_dept;
++----+--------+--------+------+--------+
+| id | name   | city   | dept | loc    |
++----+--------+--------+------+--------+
+|  1 | Harry  | Pune   | D1   | Thane  |
+|  2 | Mac    | Nashik | D2   | Mumbai |
+|  4 | Shree  | Thane  | D4   | Pune   |
+|  5 | Ramesh | Nagpur | D5   | Nagpur |
++----+--------+--------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]> insert into emp_dept(name,city,dept,loc)values("harish","mumbai","D6","pune");
+ERROR 1393 (HY000): Can not modify more than one base table through a join view 'school.emp_dept'
+MariaDB [school]> update emp_dept set city="Thane" where id=5;
+Query OK, 1 row affected (0.005 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [school]> select * from emp_dept;
++----+--------+--------+------+--------+
+| id | name   | city   | dept | loc    |
++----+--------+--------+------+--------+
+|  1 | Harry  | Pune   | D1   | Thane  |
+|  2 | Mac    | Nashik | D2   | Mumbai |
+|  4 | Shree  | Thane  | D4   | Pune   |
+|  5 | Ramesh | Thane  | D5   | Nagpur |
++----+--------+--------+------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [school]>
+
+
